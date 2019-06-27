@@ -1,7 +1,31 @@
-﻿
+﻿@model KurumsalWebCoreMVC.UI.Models.ProductListViewModel
 @{
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+    <div class="table-responsive">
+        <table class="table table-striped table-bordered ">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">No</th>
+                    <th scope="col">Ürün İsmi</th>
+                    <th scope="col">Ürün Fiyatı</th>
+                    <th scope="col">Stok Adeti</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var products in Model.Products)
+                {
+                    <tr>
+                        <th scope="row">@products.ProductId</th>
+                        <td>@products.ProductName</td>
+                        <td>@products.UnitPrice</td>
+                        <td>@products.UnitsInStock</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+
 

@@ -440,9 +440,4 @@
     <ProjectReference Include="..\KurumsalWeb.Entities\KurumsalWeb.Entities.csproj" />
   </ItemGroup>
 
-
-  <ItemGroup>
-    <Folder Include="wwwroot\" />
-  </ItemGroup>
-
 </Project>

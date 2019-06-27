@@ -4,27 +4,117 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] </title>
-    <link href="~/node_modules/bootstrap/dist/css/bootstrap-grid.css" rel="stylesheet" />
-    <link href="~/node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="~/node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="/modules/bootstrap/dist/css/bootstrap-grid.css" rel="stylesheet" />
+    <link href="/modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/css/blog-home.css" rel="stylesheet" />
 </head>
 <body>
 
-    <div>
-        @RenderBody()
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Kurumsal Mimari</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Dropdown
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">Action</a>
+                            <a class="dropdown-item" href="#">Another action</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <div class="row">
+
+            <!-- Blog Entries Column -->
+            <div class="col-md-8 mt-4">
+
+                @RenderBody()
+                <!-- Pagination -->
+
+
+            </div>
+
+            <!-- Sidebar Widgets Column -->
+            <div class="col-md-4">
+
+                <!-- Search Widget -->
+                <div class="card my-4">
+                    <h5 class="card-header">Ara</h5>
+                    <div class="card-body">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Ürün Arayın">
+                            <span class="input-group-btn">
+                                <button class="btn btn-primary" type="button">Ara</button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Categories Widget -->
+                <div class="card my-4 ">
+                    <h5 class="card-header">Kategoriler</h5>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-lg-5">
+                                <ul class="list-unstyled mb-0">
+                                    <li>
+                                        @await Component.InvokeAsync("CategoryList")
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        <!-- /.row -->
+
     </div>
+    <footer class="py-5 bg-dark">
+        <div class="container">
+            <p class="m-0 text-center text-white">Copyright @DateTime.Now.Year</p>
+        </div>
+        <!-- /.container -->
+    </footer>
 
-
-    <script src="~/node_modules/bootstrap/dist/js/bootstrap.js"></script>
-    <script src="~/node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
-    <script src="~/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="~/node_modules/jquery/dist/core.js"></script>
-    <script src="~/node_modules/jquery/dist/jquery.js"></script>
-    <script src="~/node_modules/jquery/dist/jquery.min.js"></script>
-    <script src="~/node_modules/jquery/dist/jquery.slim.min.js"></script>
-    <script src="~/node_modules/jquery-validation/dist/jquery.validate.js"></script>
-    <script src="~/node_modules/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.js"></script>
-    @RenderSection("Scripts", required: false)
+    <script src="/modules/jquery/dist/core.js"></script>
+    <script src="/modules/jquery/dist/jquery.min.js"></script>
+    <script src="/modules/jquery/dist/jquery.slim.js"></script>
+    <script src="/modules/jquery/dist/jquery.slim.min.js"></script>
+    <script src="/modules/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="/modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    <script src="/modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="/modules/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="/modules/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.js"></script>
+    @RenderSection("scripts", false)
 </body>
 </html>

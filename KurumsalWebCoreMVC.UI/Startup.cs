@@ -52,7 +52,6 @@ namespace KurumsalWebCoreMVC.UI
             }
 
             app.UseStaticFiles();
-            app.UseCookiePolicy();
             app.UseMvcWithDefaultRoute();
             app.CustomStaticFiles();
         }

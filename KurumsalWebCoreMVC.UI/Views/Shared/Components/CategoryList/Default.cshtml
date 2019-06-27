@@ -1,0 +1,10 @@
+﻿@model KurumsalWebCoreMVC.UI.Models.CategoryListViewModel
+@{
+    ViewData["Title"] = "Default";
+}
+
+@foreach (var item in Model.Categories)
+{
+    <a href="/Product/Index?category=@item.CategoryId">@item.CategoryName</a>
+}
+
