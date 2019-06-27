@@ -5,6 +5,12 @@
 
 @foreach (var item in Model.Categories)
 {
-    <a href="/Product/Index?category=@item.CategoryId">@item.CategoryName</a>
+    var css = "list-group-item list-group-item-action";
+    if (item.CategoryId == Model.CurrentCategory)
+    {
+        css += "active";
+    }
+    <a href="/Product/Index?category=@item.CategoryId" class="@css">@item.CategoryName</a>
 }
+
 
