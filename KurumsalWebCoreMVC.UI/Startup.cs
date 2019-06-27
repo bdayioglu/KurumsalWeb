@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using KurumsalWeb.Business.Abstract;
+using KurumsalWeb.Business.Concrete;
+using KurumsalWeb.DataAccess.Abstract;
+using KurumsalWeb.DataAccess.Concrete.EfCore;
 using KurumsalWebCoreMVC.UI.Middlewares;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -31,6 +35,10 @@ namespace KurumsalWebCoreMVC.UI
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+            services.AddScoped<IProductService, ProductManager>();
+            services.AddScoped<IProductDal, EfProductDal>();
+            services.AddScoped<ICategoryService, CategoryManager>();
+            services.AddScoped<ICategoryDal, EfCategoryDal>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
