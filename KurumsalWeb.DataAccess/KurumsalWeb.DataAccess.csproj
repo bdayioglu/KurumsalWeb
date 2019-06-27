@@ -4,4 +4,9 @@
     <TargetFramework>netcoreapp2.2</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\KurumsalWeb.Core\KurumsalWeb.Core.csproj" />
+    <ProjectReference Include="..\KurumsalWeb.Entities\KurumsalWeb.Entities.csproj" />
+  </ItemGroup>
+
 </Project>
