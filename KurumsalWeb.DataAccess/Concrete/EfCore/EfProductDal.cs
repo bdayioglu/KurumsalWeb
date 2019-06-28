@@ -7,7 +7,7 @@ using System.Text;
 
 namespace KurumsalWeb.DataAccess.Concrete.EfCore
 {
-    public class EfProductDal: EfEntityRepositoryBase<Products,KurumsalWebContext>,IProductDal
+    public class EfProductDal: EfEntityRepositoryBase<Product,KurumsalWebContext>,IProductDal
     {
     }
 }

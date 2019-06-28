@@ -15,27 +15,32 @@ namespace KurumsalWeb.Business.Concrete
             _productDal = productDal;
         }
 
-        public void Create(Products products)
+        public void Create(Product products)
         {
             _productDal.Add(products);
         }
 
         public void Delete(int productId)
         {
-            _productDal.Delete(new Products { ProductId = productId });
+            _productDal.Delete(new Product { ProductId = productId });
         }
 
-        public List<Products> GetAll()
+        public List<Product> GetAll()
         {
             return _productDal.GetList();
         }
 
-        public List<Products> GetByCategory(int categoryId)
+        public List<Product> GetByCategory(int categoryId)
         {
             return _productDal.GetList(p => p.CategoryId == categoryId || categoryId == 0);
         }
 
-        public void Update(Products products)
+        public Product GetById(int productId)
+        {
+           return _productDal.Get(p => p.ProductId == productId);
+        }
+
+        public void Update(Product products)
         {
             _productDal.Update(products);
         }

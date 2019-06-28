@@ -15,7 +15,7 @@ namespace KurumsalWeb.Business.Concrete
             _categoryDal = categoryDal;
         }
         
-        public List<Categories> GetAll()
+        public List<Category> GetAll()
         {
             return _categoryDal.GetList();
         }

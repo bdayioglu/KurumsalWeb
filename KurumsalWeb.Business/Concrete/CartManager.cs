@@ -9,7 +9,7 @@ namespace KurumsalWeb.Business.Concrete
 {
     public class CartManager : ICartService
     {
-        public void AddToCart(Cart cart, Products products)
+        public void AddToCart(Cart cart, Product products)
         {
             CartLine cartLine = cart.CartLines.FirstOrDefault(c => c.Product.ProductId == products.ProductId);
             if (cartLine!=null)

@@ -7,7 +7,7 @@ using System.Text;
 
 namespace KurumsalWeb.DataAccess.Concrete.EfCore
 {
-    public class EfCategoryDal:EfEntityRepositoryBase<Categories, KurumsalWebContext>,ICategoryDal
+    public class EfCategoryDal:EfEntityRepositoryBase<Category, KurumsalWebContext>,ICategoryDal
     {
     }
 }

@@ -6,7 +6,7 @@ namespace KurumsalWeb.Entities
 {
     public class CartLine
     {
-        public Products Product { get; set; }
+        public Product Product { get; set; }
         public int Quantity { get; set; }
     }
 }

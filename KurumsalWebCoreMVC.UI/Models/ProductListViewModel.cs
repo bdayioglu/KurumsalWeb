@@ -8,7 +8,7 @@ namespace KurumsalWebCoreMVC.UI.Models
 {
     public class ProductListViewModel
     {
-        public List<Products> Products { get; internal set; }
+        public List<Product> Products { get; internal set; }
         public int CurrentCategory { get; internal set; }
         public int PageSize { get; internal set; }
         public int CurrentPage { get; internal set; }

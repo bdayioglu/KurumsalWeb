@@ -6,7 +6,7 @@ using System.Text;
 
 namespace KurumsalWeb.DataAccess.Abstract
 {
-    public interface IProductDal:IEntityRepository<Products>
+    public interface IProductDal:IEntityRepository<Product>
     {
         //Custom Operations
     }

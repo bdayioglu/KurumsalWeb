@@ -7,6 +7,6 @@ namespace KurumsalWeb.Business.Abstract
 {
     public interface ICategoryService
     {
-        List<Categories> GetAll();
+        List<Category> GetAll();
     }
 }

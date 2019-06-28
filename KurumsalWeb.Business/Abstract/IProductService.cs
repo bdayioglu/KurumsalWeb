@@ -7,10 +7,11 @@ namespace KurumsalWeb.Business.Abstract
 {
     public interface IProductService
     {
-        List<Products> GetAll();
-        List<Products> GetByCategory(int categoryId);
-        void Create(Products products);
-        void Update(Products products);
+        List<Product> GetAll();
+        List<Product> GetByCategory(int categoryId);
+        void Create(Product products);
+        void Update(Product products);
         void Delete(int productId);
+        Product GetById(int productId);
     }
 }

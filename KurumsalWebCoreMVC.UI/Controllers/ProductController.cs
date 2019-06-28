@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using KurumsalWeb.Business.Abstract;
 using KurumsalWeb.Entities;
 using KurumsalWebCoreMVC.UI.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace KurumsalWebCoreMVC.UI.Controllers
@@ -30,6 +31,16 @@ namespace KurumsalWebCoreMVC.UI.Controllers
                 CurrentPage=page
             };
             return View(model);
+        }
+
+        //public string Session()
+        //{
+        //    HttpContext.Session.SetString
+        //}
+
+        public IActionResult AddToCart()
+        {
+            return View();
         }
     }
 }

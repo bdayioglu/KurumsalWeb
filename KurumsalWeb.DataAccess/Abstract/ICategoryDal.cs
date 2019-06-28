@@ -6,7 +6,7 @@ using System.Text;
 
 namespace KurumsalWeb.DataAccess.Abstract
 {
-    public interface ICategoryDal: IEntityRepository<Categories>
+    public interface ICategoryDal: IEntityRepository<Category>
     {
 
     }
