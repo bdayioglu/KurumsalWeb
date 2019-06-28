@@ -6,15 +6,19 @@ using KurumsalWeb.Business.Abstract;
 using KurumsalWeb.Business.Concrete;
 using KurumsalWeb.DataAccess.Abstract;
 using KurumsalWeb.DataAccess.Concrete.EfCore;
+using KurumsalWebCoreMVC.UI.Identity;
 using KurumsalWebCoreMVC.UI.Middlewares;
 using KurumsalWebCoreMVC.UI.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 
 namespace KurumsalWebCoreMVC.UI
 {
@@ -42,8 +46,13 @@ namespace KurumsalWebCoreMVC.UI
             services.AddScoped<ICategoryService, CategoryManager>();
             services.AddScoped<ICategoryDal, EfCategoryDal>();
             services.AddSingleton<ICartSessionServices, CartSessionService>();
-            services.AddSingleton<ICartService, CartManager>();
+            services.AddSingleton<ICartService, CartService>();
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddDbContext<ApplicationIdentityDbContext>(options =>
+            options.UseSqlServer(Configuration.GetConnectionString("IdentityConnection")));
+            services.AddIdentity<ApplicationUser, IdentityRole>()
+                .AddEntityFrameworkStores<ApplicationIdentityDbContext>()
+                .AddDefaultTokenProviders();
             services.AddSession();
             services.AddMvc();
             services.AddDistributedMemoryCache();
@@ -52,13 +61,14 @@ namespace KurumsalWebCoreMVC.UI
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env,ILoggerFactory loggerFactory)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseAuthentication();
             app.UseStaticFiles();
             app.UseMvcWithDefaultRoute();
             app.CustomStaticFiles();

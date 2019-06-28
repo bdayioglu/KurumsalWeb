@@ -16,7 +16,6 @@ namespace KurumsalWebCoreMVC.UI.Services
         {
             _httpContextAccessor = httpContextAccessor;
         }
-
         public Cart GetCart()
         {
             Cart cartToCheck = _httpContextAccessor.HttpContext.Session.GetObject<Cart>("cart");
