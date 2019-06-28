@@ -1,0 +1,15 @@
+﻿@model KurumsalWebCoreMVC.UI.Models.CartSummaryViewModel
+@{
+    ViewData["Title"] = "Default";
+}
+
+
+<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+    @foreach (var item in Model.Cart.CartLines)
+    {
+        <a class="dropdown-item">@item.Product.ProductName <span class="badge">@item.Quantity</span></a>
+    }
+    <div class="dropdown-divider"></div>
+    <a class="dropdown-item"><span class="fas-fa fa-align-left fa-shopping-cart" aria-hidden="true"></span>@Model.Cart.Total</a>
+    <a asp-controller="Cart" asp-action="List">Kart Detayına Git</a>
+</div>

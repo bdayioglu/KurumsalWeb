@@ -35,7 +35,6 @@
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Dropdown
                         </a>
-                        @await Component.InvokeAsync("CartSummary")
                     </li>
                 </ul>
 
@@ -47,23 +46,8 @@
     <div class="container">
 
         <div class="row">
-            <div class="col-md-4">
-
-                <!-- Search Widget -->
-                <!-- Categories Widget -->
-                <div class="card my-4">
-                    <div class="card-header">
-                        <h5>Kategoriler</h5>
-                    </div>
-                    <div class="list-group">
-                        @await Component.InvokeAsync("CategoryList")
-                    </div>
-                </div>
-                
-            </div>
-
             <!-- Blog Entries Column -->
-            <div class="col-md-8 mt-5">
+            <div class="col-md-12 mt-5">
                 @if (TempData["message"] == null)
                 {
                     <div class="alert alert-info" role="alert">@TempData["message"]</div>
@@ -73,7 +57,7 @@
             </div>
 
             <!-- Sidebar Widgets Column -->
-            
+
         </div>
         <!-- /.row -->
 

@@ -1,0 +1,54 @@
+﻿@model KurumsalWebCoreMVC.UI.Models.ProductListViewModel
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>
+    Ürün Listesi
+</h1>
+<hr />
+<div class="table-responsive">
+    <table class="table table-striped table-bordered ">
+        <a class="btn btn-xs btn-primary" asp-controller="Admin" asp-action="AddProduct">Ürün Ekle</a>
+        <hr />
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">No</th>
+                <th scope="col">Ürün İsmi</th>
+                <th scope="col">Ürün Fiyatı</th>
+                <th scope="col">Stok Adeti</th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var products in Model.Products)
+            {
+                <tr>
+                    <th scope="row">@products.ProductId</th>
+                    <td>@products.ProductName</td>
+                    <td>@products.UnitPrice</td>
+                    <td>@products.UnitsInStock</td>
+                    <td>
+
+                        <a class="btn btn-xs btn-success" asp-controller="Admin" asp-action="UpdateProduct"
+                           asp-route-productId="@products.ProductId">Ürün Güncelle</a>
+                        
+                    </td>
+                    <td>
+                        <a class="btn btn-xs btn-danger" asp-controller="Admin" asp-action="DeleteProduct"
+                           asp-route-productId="@products.ProductId">Ürün Sil</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<product-list-pager current-category="@Model.CurrentCategory"
+                    current-page="@Model.CurrentPage"
+                    page-size="@Model.PageSize"
+                    page-count="@Model.PageCount">
+</product-list-pager>
+
