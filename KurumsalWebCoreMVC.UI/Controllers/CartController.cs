@@ -29,7 +29,7 @@ namespace KurumsalWebCoreMVC.UI.Controllers
 
             TempData.Add("message", String.Format("Ürününüz sepete ,{0}, başarıyla eklenmiştir.",prooductToAdded.ProductName));
 
-            return RedirectToAction("List","Product");
+            return RedirectToAction("Index","Product");
         }
     }
 }
