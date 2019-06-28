@@ -1,0 +1,42 @@
+﻿@model KurumsalWebCoreMVC.UI.Models.RegisterViewModel
+@{
+    ViewData["Title"] = "Register";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+    <div class="card card-register mx-auto mt-5 col-md-6">
+        <div class="card-header">Hesap Oluştur</div>
+        <div class="card-body">
+            <form asp-controller="Account" asp-action="Register" method="post" class="form-horizontal" role="form">
+                <div class="form-group">
+                    <div class="form-label-group">
+                        <label asp-for="UserName">Ad Soyad</label>
+                        <input asp-for="UserName" class="form-control" placeholder="Ad Soyad" autofocus="autofocus">
+
+                        <span asp-validation-for="UserName"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="form-label-group">
+                        <label asp-for="Email">Email Adresi</label>
+                        <input asp-for="Email" class="form-control" placeholder="Email Adresi" autofocus="autofocus">
+
+                        <span asp-validation-for="Email"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="form-label-group">
+                        <label asp-for="Password">Şifre</label>
+                        <input asp-for="Password" class="form-control" placeholder="Password">
+
+                        <span asp-validation-for="Password"></span>
+                    </div>
+                </div>
+                <input type="submit" class="btn btn-primary btn-block " value="Hesap Oluştur" />
+            </form>
+            <div class="text-center">
+                <a class="d-block small mt-3" asp-action="Login" asp-controller="Account">Giriş Yap</a>
+            </div>
+        </div>
+    </div>
+

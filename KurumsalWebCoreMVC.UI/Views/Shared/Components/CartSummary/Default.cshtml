@@ -3,13 +3,20 @@
     ViewData["Title"] = "Default";
 }
 
+    <ul class="dropdown-menu">
+        @foreach (var item in Model.Cart.CartLines)
+        {
+            <li class="dropdown-item">
+                <a>@item.Product.ProductName <span class="badge badge-secondary">@item.Quantity</span></a>
+            </li>
+        }
+        <li class="dropdown-divider"></li>
+        <li class="dropdown-item">
+            <a><span class="fas fa-align-left fas fa-shopping-cart" aria-hidden="true"></span>@Model.Cart.Total</a>
+        </li>
+        <li class="dropdown-divider"></li>
+        <li class="dropdown-item">
+            <a asp-controller="Cart" asp-action="List">Sepet Detayına Git</a>
+        </li>
+    </ul>
 
-<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-    @foreach (var item in Model.Cart.CartLines)
-    {
-        <a class="dropdown-item">@item.Product.ProductName <span class="badge">@item.Quantity</span></a>
-    }
-    <div class="dropdown-divider"></div>
-    <a class="dropdown-item"><span class="fas-fa fa-align-left fa-shopping-cart" aria-hidden="true"></span>@Model.Cart.Total</a>
-    <a asp-controller="Cart" asp-action="List">Kart Detayına Git</a>
-</div>

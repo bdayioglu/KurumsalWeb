@@ -7,14 +7,16 @@
     <link href="/modules/bootstrap/dist/css/bootstrap-grid.css" rel="stylesheet" />
     <link href="/modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="/modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
-    <link href="/modules/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link href="~/fontawesome-free/css/all.css" rel="stylesheet" />
+    <link href="~/fontawesome-free/css/fontawesome.css" rel="stylesheet" />
+    <link href="~/fontawesome-free/css/fontawesome.min.css" rel="stylesheet" />
     <link href="~/css/blog-home.css" rel="stylesheet" />
 </head>
 <body>
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="/Home/Index/">Kurumsal Mimari</a>
+            <a class="navbar-brand" href="/Product/Index/">Kurumsal Mimari Admin Paneli</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -23,50 +25,34 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#">About</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Services</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Contact</a>
-                    </li>
                 </ul>
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Dropdown
-                        </a>
+                    <li class="dropdown-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Kullanıcı <span class="caret"></span></a>
+                        @*@await Component.InvokeAsync("UserSummary")*@
                     </li>
                 </ul>
-
             </div>
         </div>
     </nav>
-
-    <!-- Page Content -->
     <div class="container">
 
         <div class="row">
-            <!-- Blog Entries Column -->
             <div class="col-md-12 mt-5">
-                @if (TempData["message"] == null)
+                @if (TempData["message"] != null)
                 {
                     <div class="alert alert-info" role="alert">@TempData["message"]</div>
                 }
                 @RenderBody()
-                <!-- Pagination -->
             </div>
 
-            <!-- Sidebar Widgets Column -->
-
         </div>
-        <!-- /.row -->
-
     </div>
+
     <footer class="py-5 bg-dark">
         <div class="container">
             <p class="m-0 text-center text-white">Copyright @DateTime.Now.Year</p>
         </div>
-        <!-- /.container -->
     </footer>
 
     <script src="/modules/jquery/dist/core.js"></script>

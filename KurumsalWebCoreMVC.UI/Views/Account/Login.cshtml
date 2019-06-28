@@ -1,0 +1,42 @@
+﻿@model KurumsalWebCoreMVC.UI.Models.LoginViewModel
+@{
+    ViewData["Title"] = "Login";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+    <div class="card card-login mx-auto mt-5 col-md-6">
+        <div class="card-header">Giriş Yap</div>
+        <div class="card-body">
+            <form asp-action="Login" asp-controller="Account" method ="post">
+                <div class="form-group">
+                    <div class="form-label-group">
+                        <label asp-for="Email">Email Adresi</label>
+                        <input asp-for="Email" class="form-control" placeholder="Email Adresi" autofocus="autofocus">
+
+                        <span asp-validation-for="Email"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="form-label-group">
+                        <label asp-for="Password">Şifre</label>
+                        <input asp-for="Password" class="form-control" placeholder="Password">
+
+                        <span asp-validation-for="Password"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" value="RememberMe">
+                            Beni Hatırla
+                        </label>
+                    </div>
+                </div>
+                <input type="submit" class="btn btn-primary btn-block" value="Giriş Yap">
+            </form>
+            <div class="text-center">
+                <a class="d-block small mt-3" asp-controller="Account" asp-action="Register">Hesap Oluşturun</a>
+            </div>
+        </div>
+    </div>
+
