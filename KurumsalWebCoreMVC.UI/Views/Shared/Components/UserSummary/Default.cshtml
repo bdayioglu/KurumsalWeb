@@ -1,7 +1,7 @@
-﻿@model KurumsalWebCoreMVC.UI.Models.UserDetailsViewModel
+﻿@using System.Threading.Tasks
+@model KurumsalWebCoreMVC.UI.Models.UserDetailsViewModel
 @{
     ViewData["Title"] = "Default";
-    Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
 <ul class="dropdown-menu">
@@ -10,10 +10,10 @@
         <li class="dropdown-item">
             <a>Hoşgeldiniz @Model.UserName</a>
         </li>
-        <li class="dropdown-divider"></li>
-        <li class="dropdown-item">
-            <a asp-controller="Account" asp-action="LogOff">Çıkış Yap</a>
-        </li>
     }
+    <li class="dropdown-divider"></li>
+    <li class="dropdown-item">
+        <a asp-controller="Account" asp-action="LogOff">Çıkış Yap</a>
+    </li>
 </ul>
 

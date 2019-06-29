@@ -16,58 +16,48 @@
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="/Product/Index/">Kurumsal Mimari</a>
+            <a class="navbar-brand" href="/Admin/Index/">Kurumsal Mimari Admin Paneli</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a asp-controller="Account" asp-action="Login" class="nav-link">Giriş Yap</a>
+                        <a class="nav-link" asp-controller="Product" asp-action="Index">Ürünler</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Sepetiniz
+                            Kullanıcı
                         </a>
-                        @await Component.InvokeAsync("CartSummary")
+                        @await Component.InvokeAsync("UserSummary")
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <div class="container">
 
+    <div class="container container contain-lg-5 contain-md-5 contain-sm-5 fluid">
         <div class="row">
-            <div class="col-md-4">
-
-                <div class="card my-4">
-                    <div class="card-header">
-                        <h5>Kategoriler</h5>
-                    </div>
-                    <div class="list-group">
-                        @await Component.InvokeAsync("CategoryList")
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="col-md-8 mt-5">
+            <div class="col lg-5 md-5 sm-5 mt-3">
                 @if (TempData["message"] != null)
                 {
                     <div class="alert alert-info" role="alert">@TempData["message"]</div>
                 }
-                @RenderBody()
+                <div class="row">
+                    @RenderBody()
+                </div>
             </div>
         </div>
     </div>
 
     <footer class="py-5 bg-dark">
         <div class="container">
-            <p class="m-0 text-center text-white">Copyright @DateTime.Now.Year</p>
+            <p class="m-0 text-center text-white">Copyright Kurumsal Mimari @DateTime.Now.Year</p>
         </div>
+        <!-- /.container -->
     </footer>
 
     <script src="/modules/jquery/dist/core.js"></script>
@@ -80,6 +70,7 @@
     <script src="/modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="/modules/jquery-validation/dist/jquery.validate.js"></script>
     <script src="/modules/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.js"></script>
+
     @RenderSection("scripts", false)
 </body>
 </html>

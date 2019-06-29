@@ -1,7 +1,7 @@
 ﻿@model KurumsalWebCoreMVC.UI.Models.ProductListViewModel
 @{
     ViewData["Title"] = "Index";
-    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    Layout = "~/Views/_AdminLayout.cshtml";
 }
 
 <h1>
@@ -31,14 +31,14 @@
                     <td>@products.UnitPrice</td>
                     <td>@products.UnitsInStock</td>
                     <td>
-
-                        <a class="btn btn-xs btn-success" asp-controller="Admin" asp-action="UpdateProduct"
+                        <a class="btn btn-success" asp-controller="Admin" asp-action="UpdateProduct"
                            asp-route-productId="@products.ProductId">Ürün Güncelle</a>
-                        
                     </td>
                     <td>
-                        <a class="btn btn-xs btn-danger" asp-controller="Admin" asp-action="DeleteProduct"
-                           asp-route-productId="@products.ProductId">Ürün Sil</a>
+                        <form action="/Admin/DeleteProduct" method="post">
+                            <input type="hidden" name="productId" value="@products.ProductId" />
+                            <button type="submit" class="btn btn-danger">Ürün Sil</button>
+                        </form>
                     </td>
                 </tr>
             }
@@ -51,4 +51,3 @@
                     page-size="@Model.PageSize"
                     page-count="@Model.PageCount">
 </product-list-pager>
-
