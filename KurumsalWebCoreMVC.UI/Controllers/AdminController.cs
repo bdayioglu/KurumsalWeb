@@ -14,7 +14,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace KurumsalWebCoreMVC.UI.Controllers
 {
-    [Authorize]
+    [Authorize(Roles ="Admin")]
     public class AdminController : Controller
     {
         private IProductService _productService;
@@ -52,7 +52,7 @@ namespace KurumsalWebCoreMVC.UI.Controllers
                 TempData.Add("message", "Ürün Başarıyla Eklendi.");
             }
 
-            return RedirectToAction("AddProduct");
+            return RedirectToAction("Index");
         }
         [HttpGet]
         public ActionResult UpdateProduct(int productId)
@@ -76,10 +76,11 @@ namespace KurumsalWebCoreMVC.UI.Controllers
                 TempData.Add("message", "Ürün Başarıyla Güncellendi");
             }
 
-            return RedirectToAction("UpdateProduct");
+            return RedirectToAction("Index");
         }
 
-        public ActionResult Delete(int productId)
+        [HttpPost]
+        public ActionResult DeleteProduct(int productId)
         {
             _productService.Delete(productId);
             TempData.Add("message", "Ürün Başarıyla Silindi");

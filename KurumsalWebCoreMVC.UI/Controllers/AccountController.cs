@@ -55,7 +55,7 @@ namespace KurumsalWebCoreMVC.UI.Controllers
 
                         if (!roleResult.Succeeded)
                         {
-                            ModelState.AddModelError("", "We can't add the role!");
+                            ModelState.AddModelError("", "Rol Eklenemedi");
                             return View(registerViewModel);
                         }
                     }
@@ -87,7 +87,7 @@ namespace KurumsalWebCoreMVC.UI.Controllers
                     return RedirectToAction("Index", "Admin");
                 }
 
-                ModelState.AddModelError("", "Invalid login!");
+                ModelState.AddModelError("", "Geçersiz Giriş!");
             }
 
             return View(loginViewModel);
@@ -98,7 +98,7 @@ namespace KurumsalWebCoreMVC.UI.Controllers
         public ActionResult LogOff()
         {
             _signInManager.SignOutAsync().Wait();
-            return RedirectToAction("Login");
+            return RedirectToAction("Index","Product");
         }
     }
 }
