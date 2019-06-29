@@ -70,9 +70,22 @@ namespace KurumsalWebCoreMVC.UI
 
             app.UseAuthentication();
             app.UseStaticFiles();
-            app.UseMvcWithDefaultRoute();
             app.CustomStaticFiles();
             app.UseSession();
+            app.UseFileServer();
+            app.UseMvc(routes =>
+            {
+                routes.MapRoute(
+                    name: "Default",
+                    template: "{controller=Product}/{action=Index}/{id?}"
+                );
+
+                routes.MapRoute(
+                    name: "Index",
+                    template: "Admin/Index/",
+                    defaults: new { controller = "Admin", action = "Index" }
+                  );
+            });
         }
     }
 }

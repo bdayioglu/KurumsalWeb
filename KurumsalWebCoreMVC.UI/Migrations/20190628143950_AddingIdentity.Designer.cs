@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace KurumsalWebCoreMVC.UI.Migrations
 {
     [DbContext(typeof(ApplicationIdentityDbContext))]
-    [Migration("20190628110816_AddingIdentity")]
+    [Migration("20190628143950_AddingIdentity")]
     partial class AddingIdentity
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
